@@ -10,7 +10,7 @@ This repository will store LaTeX text and commentary on Descartes' *Meditationes
 
 If you have LaTeX, you should be able to build a pdf of the document by running `make`. If you don't want to bother with that, you can also [download pdfs from this site][pdf].
 
-[pdf]: https://bitbucket.org/telemachus/descartes/downloads
+[pdf]: https://bitbucket.org/telemachus/descartes-meditations/downloads
 
 ## How can I help?
 
@@ -19,5 +19,6 @@ commentary). The most easy way to contribute is to [post an issue][issue], but
 you're also welcome to [fork and make a pull request][fork]. (Note to self: Add
 something for non-technical Classicists about how this model works.)
 
-[issue]: https://bitbucket.org/telemachus/descartes/issues?status=new&status=open
-[fork]: https://bitbucket.org/telemachus/descartes/fork 
+[issue]: https://bitbucket.org/telemachus/descartes-meditations/issues?status=new&status=open
+
+[fork]: https://bitbucket.org/telemachus/descartes-meditations/fork 
