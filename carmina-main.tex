@@ -1,0 +1,133 @@
+% [[- LaTeX prelude
+\documentclass[12pt,letterpaper,oneside]{mybook}
+\usepackage[no-math]{fontspec}
+\usepackage{textcomp}
+\setmainfont[Renderer=ICU,Mapping=tex-text,BoldFont={Gentium Basic Bold}]%
+    {Gentium Plus}
+\usepackage[en]{metre}
+\newcommand\spaced[1]{%
+    {\addfontfeature{LetterSpace=18}{#1}}
+}
+\usepackage{moredefs,lips}
+\usepackage{eledmac}
+\linenumincrement{5}
+\linenummargin{right}
+\lemmaseparator{:}
+\numberonlyfirstinline
+% Move verse line numbers closer to the text of the poem.
+\setlength{\linenumsep}{-6pc}
+\footparagraph{A}
+\beforeXnotes[A]{1.5em}
+\afterXrule[A]{.5em}
+\usepackage{etoolbox}
+
+\newcommand{\chapterTitle}{}
+\newcommand{\sectionTitle}{}
+\makeatletter
+\renewcommand\contentsname{Contents}
+\let\oldChapter\chapter
+\renewcommand*\chapter{%
+    \@ifstar{\starchapter}{\@dblarg\nostarchapter}
+}
+\newcommand*\starchapter[1]{%
+    \oldChapter*{{#1}}%
+    \if@mainmatter%
+        \renewcommand{\chapterTitle}{{#1}}%
+        \addcontentsline{toc}{chapter}{{#1}}%
+    \fi
+}
+\def\nostarchapter[#1]#2{\oldChapter[{#1}]{{#2}}}
+
+\let\oldSection\section
+\renewcommand*\section{%
+    \@ifstar{\starsection}{\@dblarg\nostarsection}
+}
+\newcommand*\starsection[1]{%
+    \oldSection*{{#1}}%
+    \if@mainmatter%
+        \renewcommand{\sectionTitle}{{#1}}%
+        % Remove this to include sections from the commentary in the ToC.
+        \expandafter\ifstrequal\chapterTitle{Introduction}%
+            {\addcontentsline{toc}{section}{{#1}}}%
+            {}%
+    \fi
+}
+\def\nostarsection[#1]#2{\oldSection[{#1}]{{#2}}}
+\makeatother
+
+% A wrapper for textual variants
+\newcommand{\var}[3]{%
+    \edtext{{#1}}{\Afootnote{{#2} \textbf{{#3}}}}%
+}
+\newcommand{\vvar}[4]{%
+    \edtext{{#1}}{\lemma{{#1} \textbf{{#2}}}\Afootnote{{#3} \textbf{{#4}}}}%
+}
+% A wrapper for introducing new items into the commentary
+\newcommand{\lem}[1]{\textbf{{#1}}}
+\renewcommand\thesection{\arabic{section}}
+\setcounter{secnumdepth}{0}
+\usepackage{extramarks}
+\newcommand{\comment}[2]{%
+    \edef\tempa{#1}\edef\tempb{#2}%
+    \subsection{{#1}\ifx\tempa\tempb\relax\else--{#2}\fi}
+    \markright{#1}
+}
+\newcommand{\intHeader}{%
+    {\chapterTitle}: {\sectionTitle}%
+}
+\newcommand{\comHeader}{%
+    \edef\tempa{\rightmark}\edef\tempb{\lastrightmark}%
+    {\MakeUppercase{\chapterTitle}}: %
+        \rightmark\ifx\tempa\tempb\relax\else--\lastrightmark\fi
+}
+\renewcommand{\mymarks}{%
+    \expandafter\ifstrequal\chapterTitle{Commentary}%
+        {\comHeader}%
+        {\expandafter\ifstrequal\chapterTitle{Introduction}%
+            {\MakeUppercase{\intHeader}}%
+            {\MakeUppercase{\chapterTitle}}% 
+        }%
+}
+\newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}}}
+\newenvironment{abbreviations}{%
+    \begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}%
+    \setlength{\labelwidth}{3cm}\setlength{\leftmargin}{\labelwidth+\labelsep}%
+    \setlength{\itemsep}{0pt}}}{\end{list}}
+
+\usepackage{natbib}
+\usepackage{bibentry}
+\nobibliography*
+\renewcommand{\bibsection}{\chapter{Bibliography}}
+\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage{enumitem}
+\setlist{noitemsep}
+\usepackage{calc}
+\usepackage[super]{nth}
+\usepackage[linktoc=all]{hyperref}
+\pagestyle{myheadings}
+% -]]
+
+% [[- Document-
+\begin{document}
+
+\nocite{*}
+
+\include{carmina-titlepage}
+
+\frontmatter
+ \include{carmina-toc}
+ \include{carmina-abbreviations}
+
+\mainmatter
+ \pagenumbering{arabic}
+ \include{carmina-introduction}
+ \include{carmina-text}
+ \include{carmina-commentary}
+ \include{carmina-vocabulary}
+
+\backmatter
+ \bibliographystyle{apa}
+ \bibliography{carmina}
+
+\end{document}
+% -]]

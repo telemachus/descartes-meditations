@@ -1,0 +1,24 @@
+% [[- LaTeX prelude
+\documentclass[12pt,letterpaper,oneside]{book}
+\usepackage{fontspec}
+\setmainfont[Renderer=ICU,Mapping=tex-text,BoldFont={Gentium Basic Bold}]%
+    {Gentium Plus}
+\usepackage[english,latin]{babel}
+\newcommand\at[1]{\-\marginpar[\raggedleft\scriptsize #1]%
+    {\raggedright\scriptsize #1}%
+}
+\usepackage{enumitem}
+\setlist[description]{nosep}
+% -]]
+
+% [[- Document-
+\begin{document}
+
+\include{descartes-titlepage}
+
+\mainmatter
+    \pagenumbering{arabic}
+    \include{babel-text}
+    \include{descartes-vocabulary}
+\end{document}
+% -]]
