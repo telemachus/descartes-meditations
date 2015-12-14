@@ -2,11 +2,8 @@
 \documentclass[12pt,letterpaper,oneside]{mybook}
 \usepackage[no-math]{fontspec}
 \usepackage{textcomp}
-% Comment out the two lines below and uncomment the next line if you don't
-% have Gentium Basic and Gentium Plus fonts.
-\setmainfont[Renderer=ICU,Mapping=tex-text,BoldFont={Gentium Basic Bold}]%
-    {Gentium Plus}
-%\setmainfont{Baskerville}
+\setmainfont[Ligatures={Common,TeX}]{Baskerville}
+\newfontfamily\g[Ligatures={Common,TeX}]{Times New Roman}
 \usepackage[en]{metre}
 \newcommand\spaced[1]{%
     {\addfontfeature{LetterSpace=18}{#1}}
@@ -138,6 +135,7 @@
     \include{descartes-introduction}
     \include{descartes-text}
     \include{descartes-commentary}
+    \include{descartes-background}
     \include{descartes-vocabulary}
 
 \backmatter
