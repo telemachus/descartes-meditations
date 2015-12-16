@@ -9,15 +9,7 @@
     {\addfontfeature{LetterSpace=18}{#1}}
 }
 %\usepackage{moredefs,lips}
-\usepackage[noreledmac]{eledmac}
-\linenumincrement{5}
-\linenummargin{right}
-\lemmaseparator{:}
-\footparagraph{A}
-\beforeXnotes[A]{1.5em}
-\afterXrule[A]{.5em}
 \usepackage{etoolbox}
-
 \newcommand{\chapterTitle}{}
 \newcommand{\sectionTitle}{}
 \newcommand{\subsubsectionTitle}{}
@@ -62,12 +54,15 @@
 \def\nostarsubsubsection[#1]#2{\oldSubsubsection[{#1}]{{#2}}}
 \makeatother
 
-% A wrapper for textual variants
-\newcommand{\var}[3]{%
-    \edtext{{#1}}{\Afootnote{{#2} \textbf{{#3}}}}%
+% Wrapper for textual notes. Use as follows:
+% \var{word or phrase}{comment}
+\newcommand{\var}[2]{%
+    {#1}\footnote{{#1} : {#2}}%
 }
+% Second wrapper for textual variants. Use as follows:
+% \vvar{word or phrase}{source}{alternative}{source}
 \newcommand{\vvar}[4]{%
-    \edtext{{#1}}{\lemma{{#1} \textbf{{#2}}}\Afootnote{{#3} \textbf{{#4}}}}%
+    {#1}\footnote{{#1} \textbf{{#2}} : {#3} \textbf{{#4}}}%
 }
 % A wrapper for introducing new items into the commentary
 \newcommand{\lem}[1]{\textbf{{#1}}}
