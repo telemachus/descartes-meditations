@@ -1,15 +1,15 @@
 # Notes
 
-## D' use of scepticism (Bernard Williams)
+## Descartes' use of scepticism (Bernard Williams)
 
-> D, whose aim is precisely to replace uncertainty with knowledge (231).
+> Descartes, whose aim is precisely to replace uncertainty with knowledge (231).
 
 Scepticism serves two purposes for D:
 
 1. It is an extreme example of the uncertainty that is already present in human life (231).
 1. It is "part of D's method for overcoming uncertainty and achieving knowledge" (231).
 
-D strives to create hyperbolical doubt as a positive counterweight to any danger of doubtful or poorly supported beliefs. This is a feature of his "mature method" even before his *Meditations* (231-232). This already implies that D feels that he has control of his scepticism, in a way that many other thinkers to not. Williams compares D's method to that of Ayer in *Problems of Knowledge*. He then adds, "The Cartesian, however, resembles the Pyrrhonist, in deploying a scepticism which he has intelligibly shaped to his own purposes, in the one case of satisfying the desire for knowledge, in the other of banishing it" (232).
+D strives to create hyperbolical doubt as a positive counterweight to any danger of doubtful or poorly supported beliefs. This is a feature of his "mature method" even before his *Meditations* (231-232). This already implies that D feels that he has control of his scepticism, in a way that many other thinkers do not. Williams compares D's method to that of Ayer in *Problems of Knowledge*. He then adds, "The Cartesian, however, resembles the Pyrrhonist, in deploying a scepticism which he has intelligibly shaped to his own purposes, in the one case of satisfying the desire for knowledge, in the other of banishing it" (232).
 
 D believes that he has met the sceptical challenge in such a way as to banish it fully. He strives to raise doubts as extreme as anything in the sceptic's arsenal, and he suggests that he is familiar with both ancient and contemporary scepticism. He hopes to prevent any later counter-attack by sceptics against the position that he goes on to develop.
 
