@@ -1,58 +1,27 @@
 % [[- LaTeX prelude
-\documentclass[12pt,letterpaper,oneside]{mybook}
+\documentclass[12pt,letterpaper]{book}
+
 \usepackage[no-math]{fontspec}
-\usepackage{textcomp}
-\setmainfont[Ligatures={Common,TeX}]{Baskerville}
-\newfontfamily\g[Ligatures={Common,TeX}]{Times New Roman}
-\usepackage[en]{metre}
-\newcommand\spaced[1]{%
-    {\addfontfeature{LetterSpace=18}{#1}}
-}
-%\usepackage{moredefs,lips}
-\usepackage{etoolbox}
-\newcommand{\chapterTitle}{}
-\newcommand{\sectionTitle}{}
-\newcommand{\subsubsectionTitle}{}
-\makeatletter
-\renewcommand\contentsname{Contents}
-\let\oldChapter\chapter
-\renewcommand*\chapter{%
-    \@ifstar{\starchapter}{\@dblarg\nostarchapter}
-}
-\newcommand*\starchapter[1]{%
-    \oldChapter*{{#1}}%
-    \if@mainmatter%
-        \renewcommand{\chapterTitle}{{#1}}%
-        \addcontentsline{toc}{chapter}{{#1}}%
-    \fi
-}
-\def\nostarchapter[#1]#2{\oldChapter[{#1}]{{#2}}}
+\setmainfont{Baskerville}
 
-\let\oldSection\section
-\renewcommand*\section{%
-    \@ifstar{\starsection}{\@dblarg\nostarsection}
-}
-\newcommand*\starsection[1]{%
-    \oldSection*{{#1}}%
-    \if@mainmatter%
-        \renewcommand{\sectionTitle}{{#1}}%
-        \addcontentsline{toc}{section}{{#1}}%
-    \fi
-}
-\def\nostarsection[#1]#2{\oldSection[{#1}]{{#2}}}
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\setotherlanguage[variant=medieval]{latin}
+\setotherlanguage[variant=ancient]{greek}
+\newfontfamily\greekfont[Script=Greek]{Times New Roman}
 
-\let\oldSubsubsection\subsubsection
-\renewcommand*\subsubsection{%
-    \@ifstar{\starsubsubsection}{\@dblarg\nostarsubsubsection}
-}
-\newcommand*\starsubsubsection[1]{%
-    \oldSubsubsection*{{#1}}%
-    \if@mainmatter%
-        \renewcommand{\subsubsectionTitle}{{#1}}%
-    \fi
-}
-\def\nostarsubsubsection[#1]#2{\oldSubsubsection[{#1}]{{#2}}}
-\makeatother
+\usepackage{natbib}
+\usepackage{bibentry}
+\nobibliography*
+\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage{enumitem}
+\setlist{noitemsep}
+\usepackage[super]{nth}
+\usepackage[linktoc=all]{hyperref}
+
+\usepackage[noend,nofamiliar,noledgroup,series={A}]{reledmac}
+\Xnolemmaseparator[A]
+\Xarrangement[A]{threecol}
 
 % Wrapper for textual notes. Use as follows:
 % \var{word or phrase}{comment}
@@ -65,53 +34,28 @@
     {#1}\footnote{{#1} \textbf{{#2}} : {#3} \textbf{{#4}}}%
 }
 % A wrapper for introducing new items into the commentary
+\newcommand{\lemc}[1]{\textbf{{#1}:}}
 \newcommand{\lem}[1]{\textbf{{#1}}}
-\renewcommand\thesubsection{\arabic{subsection}}
-\setcounter{secnumdepth}{1}
-\usepackage{extramarks}
-\newcommand{\comment}[2]{%
-    \edef\tempa{#1}\edef\tempb{#2}%
-    \subsubsection{{#1}\ifx\tempa\tempb\relax\else--{#2}\fi}
-    \markright{#1}
-}
-\newcommand{\chapHeader}{%
-    {\chapterTitle}: {\sectionTitle}%
-}
-\newcommand{\comHeader}{%
-    \edef\tempa{\rightmark}\edef\tempb{\lastrightmark}%
-    {\MakeUppercase{{\chapterTitle}: {\sectionTitle} {\subsubsectionTitle}}}%
-        \rightmark\ifx\tempa\tempb\relax\else--\lastrightmark\fi
-}
-\renewcommand{\mymarks}{%
-    \expandafter\ifstrequal\chapterTitle{Commentary}%
-        {\comHeader}%
-        {\MakeUppercase{\chapHeader}}%
-}
 
 % Hackish way to make abbreviations look the way I want them to
 \newcommand{\abbrlabel}[1]{\makebox[3cm][l]{\textbf{#1}}}
 \newenvironment{abbreviations}{%
     \begin{list}{}{\renewcommand{\makelabel}{\abbrlabel}%
     \setlength{\labelwidth}{3cm}\setlength{\leftmargin}{\labelwidth+\labelsep}%
-    \setlength{\itemsep}{0pt}}}{\end{list}}
-
-\usepackage{natbib}
-\usepackage{bibentry}
-\nobibliography*
-\renewcommand{\bibsection}{\chapter{Bibliography}}
-\bibpunct{(}{)}{;}{a}{,}{,}
-\usepackage{enumitem}
-\setlist{noitemsep}
-\usepackage{calc}
-\usepackage[super]{nth}
-\usepackage[linktoc=all]{hyperref}
-\pagestyle{myheadings}
-
-\newcommand\at[1]{\-\marginpar[\raggedleft\scriptsize #1]%
-    {\raggedright\scriptsize #1}%
+    \setlength{\itemsep}{0pt}}}{\end{list}%
 }
 
-\hyphenation{super-ae-di-fi-ca-tum co-lo-ri-bus}
+% Clear space under a chunk of text before printing notes.
+\newcommand{\prenotes}{%
+    \bigskip
+    \bigskip
+    \footnoterule
+    \bigskip
+}
+
+\begin{hyphenrules}{latin}
+    \hyphenation{pro-inde su-per-ex-tru-xi}
+\end{hyphenrules}
 % -]]
 
 % [[- Document-
@@ -126,10 +70,8 @@
     \include{descartes-abbreviations}
 
 \mainmatter
-    \pagenumbering{arabic}
     \include{descartes-introduction}
-    \include{descartes-text}
-    \include{descartes-commentary}
+    \include{meditatio-prima}
     \include{descartes-background}
     \include{descartes-vocabulary}
 
