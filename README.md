@@ -1,9 +1,5 @@
 # Commentary on Descartes' *Meditationes de prima philosophia*
 
-## WARNING
-
-I'm just starting work on this (December 2015). At the moment, nearly all of it is either TODO or proof-of-concept only. But watch this space. By January of 2017, there should be something more substantial here. (In fact, I'll be putting in the bulk of the work over summer of 2016, but the class begins in January of 2017.)
-
 ## What is this?
 
 This repository will store LaTeX text and commentary on Descartes' *Meditationes de prima philosophia*. At the moment, there's not much here, but there will be. Watch this space.
