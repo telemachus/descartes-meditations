@@ -22,6 +22,11 @@
 \usepackage[noend,nofamiliar,noledgroup,series={A}]{reledmac}
 \Xlemmaseparator[A]{:}
 
+% Insert AT numbers and a marker for where the division occurs
+\newcommand{\at}[1]{%
+    |\ledsidenote{{#1}}%
+}
+
 % Wrapper for textual notes. Use as follows:
 % \var{word or phrase}{comment}
 \newcommand{\var}[2]{%
