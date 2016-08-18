@@ -13,6 +13,7 @@ clean:
 	- $(RM) *.{aux,log,pdf,bbl,blg,fls,fdb_latexmk,end,eledsec*,out,toc}
 	- $(RM) descartes.[1-9]
 	- $(RM) descartes.[1-9][0-9]
+	- $(RM) descartes.bcf
 	- $(RM) reled.[A-Z]end
 
 .PHONY : clean
