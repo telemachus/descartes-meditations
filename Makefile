@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 LATEXMK = latexmk
-FLAGS = -xelatex
+FLAGS = -xelatex -bibtex-cond
 
 all: descartes
 
