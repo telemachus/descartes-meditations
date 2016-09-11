@@ -10,10 +10,11 @@
 \setotherlanguage[variant=ancient]{greek}
 \newfontfamily\greekfont[Script=Greek]{Times New Roman}
 
-\usepackage{natbib}
+\usepackage{csquotes}
+\usepackage[style=nottsclassic,backend=biber]{biblatex}
+\addbibresource{descartes.bib}
 \usepackage{bibentry}
 \nobibliography*
-\bibpunct{(}{)}{;}{a}{,}{,}
 \usepackage{enumitem}
 \setlist{noitemsep}
 \usepackage[super]{nth}
@@ -85,8 +86,7 @@
     \include{descartes-vocabulary}
 
 \backmatter
-    \bibliographystyle{apa}
-    \bibliography{descartes}
+    \printbibliography
 
 \end{document}
 % -]]
