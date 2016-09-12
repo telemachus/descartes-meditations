@@ -10,11 +10,45 @@
 \setotherlanguage[variant=ancient]{greek}
 \newfontfamily\greekfont[Script=Greek]{Times New Roman}
 
+\usepackage{emptypage}
+
 \usepackage{csquotes}
-\usepackage[style=nottsclassic,backend=biber]{biblatex}
+\usepackage[style=authoryear,backend=biber,dashed=false,%	
+	abbreviate=false]{biblatex}
 \addbibresource{descartes.bib}
-\usepackage{bibentry}
-\nobibliography*
+% See the following resources:
+%   https://orthostat.wordpress.com/2013/02/16/moving-to-biblatex-1/
+%%
+% Remove pp. in citations.
+\DeclareFieldFormat{postnote}{#1}
+% Remove pp. from bibliography.
+\DeclareFieldFormat%
+    [article,inbook,incollection,inproceedings,thesis,patent,unpublished]%
+    {pages}{{\nopp#1}}
+% Use single quotes around titles of chapters and articles, not double.
+% \DeclareFieldFormat%
+%     [article,inbook,incollection,inproceedings,thesis,patent,unpublished]%
+%     {title}{`#1'}
+% Use commas rather than periods to separate units in the bibliography.
+% \renewcommand*{\newunitpunct}{\addcomma\space}
+% Place a space rather than a comma between name and year in citations.
+% \renewcommand{\nameyeardelim}{~}
+% Place a colon+narrow space before page numbers in citations.
+\renewcommand{\postnotedelim}{:\,}
+% No "in:" for articles at all. For all else, remove the colon.
+\renewbibmacro{in:}{%
+	\ifentrytype{article}{}{\printtext{\bibstring{in}}}
+}
+% Remove parentheses around date in bibliography.
+% See http://tex.stackexchange.com/a/40710/29387
+\usepackage{xpatch}
+\xpatchbibmacro{date+extrayear}{%
+	\printtext[parens]%
+}{%
+	\setunit{\addperiod\space}%
+	\printtext%
+}{}{}
+
 \usepackage{enumitem}
 \setlist{noitemsep}
 \usepackage[super]{nth}
