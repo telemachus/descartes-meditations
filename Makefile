@@ -14,6 +14,7 @@ clean:
 	- $(RM) descartes.[1-9]
 	- $(RM) descartes.[1-9][0-9]
 	- $(RM) descartes.bcf
+	- $(RM) descartes.run.xml
 	- $(RM) reled.[A-Z]end
 
 .PHONY : clean
