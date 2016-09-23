@@ -1,4 +1,6 @@
 *.pdf
-descartes.[0-9]
-*.eledsec[0-9]
+descartes.[0-9]*
+descartes.bcf
+descartes.run.xml
+*.eledsec*
 .gem
