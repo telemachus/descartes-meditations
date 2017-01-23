@@ -102,19 +102,29 @@
 
 \raggedbottom
 
-\pagestyle{plain}
+%\pagestyle{plain}
 \addtocontents{toc}{\setcounter{tocdepth}{0}}
-\renewcommand\thesection{}
-\renewcommand\thesubsection{}
-\makeatletter
-\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
-\let\sectionignore\@gobbletwo
-\let\latex@numberline\numberline
-\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
-\makeatother
-% -]]
+% \renewcommand\thesection{}
+% \renewcommand\thesubsection{}
+% \makeatletter
+% \def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+% \let\sectionignore\@gobbletwo
+% \let\latex@numberline\numberline
+% \def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+% \makeatother
 
-% [[- Document-
+\usepackage{textcase}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\fancyhead[LE]{\MakeTextLowercase\scshape\textit{\leftmark}}
+\fancyhead[RO]{\MakeTextLowercase\scshape\textit{\rightmark}}
+% -]] Latex prelude
+
+% [[- Document
 \begin{document}
 
 \nocite{*}
@@ -136,4 +146,4 @@
     \printbibliography
 
 \end{document}
-% -]]
+% -]] Document
