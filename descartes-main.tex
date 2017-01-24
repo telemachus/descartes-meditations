@@ -4,11 +4,12 @@
 \usepackage[no-math]{fontspec}
 \setmainfont{Baskerville}
 
-\usepackage{polyglossia}
+\usepackage[nolocalmarks]{polyglossia}
 \setdefaultlanguage{english}
 \setotherlanguage[variant=medieval]{latin}
 \setotherlanguage[variant=ancient]{greek}
 \newfontfamily\greekfont[Script=Greek]{Times New Roman}
+\uccode`\u=`\U
 
 \usepackage{emptypage}
 
@@ -117,8 +118,8 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[RO, LE]{\thepage}
-\fancyhead[CE]{\scshape\MakeUppercase{\leftmark}}
-\fancyhead[CO]{\scshape\MakeUppercase{\rightmark}}
+\fancyhead[CE]{\MakeUppercase{\leftmark}}
+\fancyhead[CO]{\MakeUppercase{\rightmark}}
 \renewcommand{\chaptermark}[1]{\markboth{{\textenglish{#1}}}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
 % -]] Latex prelude
