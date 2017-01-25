@@ -2,6 +2,9 @@
 descartes.[0-9]*
 descartes.bcf
 descartes.run.xml
+descartes-main.[0-9]*
+descartes-main.bcf
+descartes-main.run.xml
 *.eledsec*
 .gem
 *.xdv
