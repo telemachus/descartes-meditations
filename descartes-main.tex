@@ -15,7 +15,7 @@
 
 \usepackage{csquotes}
 \usepackage[style=authoryear,backend=biber,dashed=false,%	
-	abbreviate=false]{biblatex}
+	abbreviate=false,maxnames=4]{biblatex}
 \addbibresource{descartes.bib}
 % See the following resources:
 %   https://orthostat.wordpress.com/2013/02/16/moving-to-biblatex-1/
@@ -123,6 +123,7 @@
 \fancyhead[CO]{\MakeUppercase{\rightmark}}
 \renewcommand{\chaptermark}[1]{\markboth{{\textenglish{#1}}}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\let\emph\textit
 % -]] Latex prelude
 
 % [[- Document
