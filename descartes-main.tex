@@ -12,6 +12,13 @@
 \uccode`\u=`\U
 
 \usepackage{emptypage}
+\usepackage{etoolbox}
+\usepackage{marginnote}
+\makeatletter
+\patchcmd{\@mn@margintest}{\@tempswafalse}{\@tempswatrue}{}{}
+\patchcmd{\@mn@margintest}{\@tempswafalse}{\@tempswatrue}{}{}
+\reversemarginpar
+\makeatother
 
 \usepackage{csquotes}
 \usepackage[style=authoryear,backend=biber,dashed=false,%	
@@ -123,7 +130,6 @@
 \fancyhead[CO]{\MakeUppercase{\rightmark}}
 \renewcommand{\chaptermark}[1]{\markboth{{\textenglish{#1}}}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
-\let\emph\textit
 % -]] Latex prelude
 
 % [[- Document
