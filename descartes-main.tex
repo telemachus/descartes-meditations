@@ -20,6 +20,24 @@
 \reversemarginpar
 \makeatother
 
+% Temporary fix until babel is updated:
+% https://tex.stackexchange.com/a/396614/29387
+\makeatletter
+\def\hyphenrules#1{%
+  \edef\bbl@hyph@languagename{#1}%
+  \bbl@fixname\bbl@hyph@languagename
+  \bbl@iflanguage\bbl@hyph@languagename{%
+    \expandafter\bbl@patterns\expandafter{\bbl@hyph@languagename}%
+    \languageshorthands{none}%
+    \expandafter\ifx\csname\bbl@hyph@languagename hyphenmins\endcsname\relax
+      \set@hyphenmins\tw@\thr@@\relax
+    \else
+      \expandafter\expandafter\expandafter\set@hyphenmins
+      \csname\bbl@hyph@languagename hyphenmins\endcsname\relax
+    \fi}}
+\let\endhyphenrules\@empty
+\makeatother
+
 \usepackage{csquotes}
 \usepackage[style=authoryear,backend=biber,dashed=false,%	
 	abbreviate=false,maxnames=4]{biblatex}
@@ -145,6 +163,7 @@
 
 \mainmatter
     \include{descartes-introduction}
+    \include{synopsis}
     \include{meditatio-prima}
     \include{meditatio-secunda}
     %\include{descartes-background}
