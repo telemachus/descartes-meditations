@@ -2,7 +2,7 @@
 
 ## What is this?
 
-As of summer of 2016, it’s a work in progress. The plan is that it will be a text and commentary on Descartes’ *Meditationes de prima philosophia*. The commentary is aimed at intermediate readers of Latin. The notes focus primarily on the language, but since I hope it will be of interest to non-philosophers as well, I also talk about the arguments.
+As of 2019, it’s a work in progress. The plan is that it will be a text and commentary on Descartes’ *Meditationes de prima philosophia*. The commentary is aimed at intermediate readers of Latin. The notes focus primarily on the language, but since I hope it will be of interest to non-philosophers as well, I also talk about the arguments.
 
 ## Want to look at it?
 
