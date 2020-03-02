@@ -10,7 +10,7 @@ descartes: descartes-titlepage.tex descartes-introduction.tex \
 	$(LATEXMK) $(FLAGS) descartes-main.tex
 
 clean:
-	- $(RM) *.{aux,log,pdf,bbl,blg,fls,fdb_latexmk,end,eledsec*,out,toc}
+	- $(RM) *.{aux,log,pdf,bbl,blg,fls,fdb_latexmk,end,eledsec*,out,toc,xdv}
 	- $(RM) descartes.[1-9]
 	- $(RM) descartes.[1-9][0-9]
 	- $(RM) descartes.bcf
