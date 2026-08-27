@@ -124,7 +124,6 @@
 
 \raggedbottom
 
-\addtocontents{toc}{\setcounter{tocdepth}{0}}
 \renewcommand\thesection{}
 \renewcommand\thesubsection{}
 \makeatletter
@@ -151,6 +150,7 @@
 \begin{document}
 
 \nocite{*}
+\setcounter{tocdepth}{0}
 
 \include{descartes-titlepage}
 
