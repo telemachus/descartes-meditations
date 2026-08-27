@@ -12,9 +12,9 @@ Currently, there is an introduction, a text and commentary on the synopsis and f
 
 If you have LaTeX, you should be able to build a pdf of the document by running `make`. You'll need a pretty recent version of LaTeX and its supporting packages.
 
-If you want to look at it, but you aren't comfortable with LaTeX, send me an email (peter@aronoff.org) or contact me on Twitter (@telemachus).
+If you want to look at it, but you aren't comfortable with LaTeX, send me an email (peter@aronoff.org).
 
 ## Want to help?
 
 I would love feedback on anything (my terrible LaTeX, the text, or the
-commentary). Again, please send me an email or contact me on Twitter. 
+commentary). Again, please file an issue here or send me an email.
